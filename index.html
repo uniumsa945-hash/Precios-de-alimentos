@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Abastecimiento y Precios en Crisis</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Simulador de Economía Familiar</h1>
+        <p>Análisis de impacto por el incremento de precios en la canasta básica</p>
+    </header>
+
+    <main class="container">
+        
+        <section id="inicio" class="card">
+            <h2>Inicio y Contexto de la Situación</h2>
+            <p><strong>Objetivo del simulador:</strong> Permitir a las familias calcular el impacto real del incremento de precios en sus bolsillos, ayudando a planificar el gasto mensual estimado en contextos de inflación o crisis de abastecimiento.</p>
+            <p>En situaciones de volatilidad económica, los productos de la canasta familiar sufren variaciones constantes. Este simulador calcula la diferencia entre lo que se gastaba "antes" y lo que se gasta "ahora" según el consumo familiar.</p>
+        </section>
+
+        <section id="casos-estudio" class="card">
+            <h2>Casos de Estudio (Datos de Referencia)</h2>
+            <p>Puedes usar estos datos reales para probar el funcionamiento del simulador:</p>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Precio Anterior</th>
+                            <th>Precio Actual</th>
+                            <th>Cantidad Mensual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Arroz</td>
+                            <td>8 Bs</td>
+                            <td>11 Bs</td>
+                            <td>10 unidades</td>
+                        </tr>
+                        <tr>
+                            <td>Papa</td>
+                            <td>7 Bs</td>
+                            <td>10 Bs</td>
+                            <td>8 unidades</td>
+                        </tr>
+                        <tr>
+                            <td>Aceite</td>
+                            <td>12 Bs</td>
+                            <td>18 Bs</td>
+                            <td>4 unidades</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="simulador" class="card">
+            <h2>Simulador de Precios de Alimentos</h2>
+            <form id="form-simulador">
+                <div class="form-group">
+                    <label for="producto">Nombre del Producto:</label>
+                    <input type="text" id="producto" placeholder="Ej. Arroz" required>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="precio-anterior">Precio Anterior (Bs):</label>
+                        <input id="precio-anterior" min="0.1" step="0.1" placeholder="0.00" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="precio-actual">Precio Actual (Bs):</label>
+                        <input id="precio-actual" min="0.1" step="0.1" placeholder="0.00" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cantidad">Cantidad Consumida (por semana):</label>
+                        <input id="cantidad" min="1" placeholder="Ej. 2" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="semanas">Número de Semanas (Mes = 4):</label>
+                        <input id="semanas" min="1" max="52" value="4" required>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button id="btn-calcular" class="btn btn-primary">Calcular Impacto</button>
+                    <button id="btn-limpiar" class="btn btn-secondary">Limpiar Datos</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="resultados" class="card hidden">
+            <h2>Resultados del Análisis</h2>
+            <div id="alerta-status" class="status-alert"></div>
+            
+            <div class="resultados-grid">
+                <p><strong>Producto evaluado:</strong> <span id="res-producto">-</span></p>
+                <p><strong>Incremento por unidad:</strong> <span id="res-incremento">-</span></p>
+                <p><strong>Porcentaje de aumento:</strong> <span id="res-porcentaje">-</span></p>
+                <p><strong>Gasto semanal anterior:</strong> <span id="res-semanal-ant">-</span></p>
+                <p><strong>Gasto semanal actual:</strong> <span id="res-semanal-act">-</span></p>
+                <p><strong>Gasto mensual (periodo) anterior:</strong> <span id="res-total-ant">-</span></p>
+                <p><strong>Gasto mensual (periodo) actual:</strong> <span id="res-total-act">-</span></p>
+            </div>
+            
+            <div class="total-box">
+                <h3>Diferencia total / Gasto extra: <span id="res-diferencia">-</span></h3>
+            </div>
+        </section>
+
+        <section id="conclusiones" class="card">
+            <h2>Conclusiones</h2>
+            <p>El modelo permite visibilizar el impacto de la inflación hormiga. A veces un aumento de 3 Bs parece menor, pero acumulado por la cantidad de consumo mensual y sumado a diferentes productos de la canasta, merma significativamente el poder adquisitivo familiar.</p>
+            <p><strong>Utilidad:</strong> Ayuda a priorizar productos, buscar sustitutos o reajustar el presupuesto del hogar antes de realizar las compras básicas.</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p><strong>Créditos:</strong> Desarrollado por [Nombre del Estudiante / Grupo] &copy; 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
