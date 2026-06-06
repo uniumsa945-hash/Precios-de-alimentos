@@ -1,0 +1,203 @@
+/* --- Variables de Diseño y Paleta de Colores --- */
+:root {
+    --primary-color: #2b6cb0;
+    --primary-hover: #1a5696;
+    --secondary-color: #718096;
+    --background-bg: #f7fafc;
+    --card-bg: #ffffff;
+    --text-color: #2d3748;
+    --border-color: #e2e8f0;
+    
+    /* Estados dinámicos */
+    --color-normal: #48bb78;
+    --color-alerta: #ecc94b;
+    --color-critico: #f56565;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--background-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding-bottom: 40px;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* --- Tarjetas y Bloques --- */
+.card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 0.8rem;
+}
+
+/* --- Tablas --- */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: #edf2f7;
+    color: var(--text-color);
+}
+
+/* --- Formulario --- */
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+/* --- Botones --- */
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #4a5568;
+}
+
+/* --- Sección Resultados e Impactos Dinámicos --- */
+.hidden {
+    display: none;
+}
+
+.resultados-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.total-box {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #edf2f7;
+    border-left: 5px solid var(--primary-color);
+    border-radius: 4px;
+    text-align: center;
+}
+
+.status-alert {
+    padding: 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* --- Diseño Responsivo (Media Queries) --- */
+@media (max-width: 600px) {
+    .form-grid, .resultados-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .button-group {
+        flex-direction: column;
+    }
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+}
